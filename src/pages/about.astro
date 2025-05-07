@@ -1,0 +1,220 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About | AI Marketing Tools Directory">
+	<section class="about">
+		<div class="hero-content">
+			<h1>About AI Marketing Tools Directory</h1>
+			<div class="hero-glow"></div>
+		</div>
+		
+		<div class="content">
+			<p>
+				Welcome to the AI Marketing Tools Directory, your comprehensive resource for discovering 
+				the best AI-powered tools to enhance your marketing strategies and workflows.
+			</p>
+			
+			<h2>Our Mission</h2>
+			<p>
+				Our mission is to help marketers, businesses, and agencies navigate the rapidly evolving 
+				landscape of AI marketing tools. We curate and categorize the most effective AI solutions 
+				to help you find the perfect tools for your specific marketing needs.
+			</p>
+			
+			<h2>What We Cover</h2>
+			<p>
+				Our directory includes AI tools across various marketing categories:
+			</p>
+			<ul>
+				<li><strong>Content Creation:</strong> AI copywriting and content generation tools</li>
+				<li><strong>SEO & Content Strategy:</strong> AI-powered SEO optimization and content planning</li>
+				<li><strong>Social Media:</strong> AI tools for social media management and content creation</li>
+				<li><strong>Email Marketing:</strong> AI solutions for email optimization and personalization</li>
+				<li><strong>Visual Content:</strong> AI image and video generation tools</li>
+				<li><strong>Conversational Marketing:</strong> AI chatbots and conversation optimization</li>
+				<li><strong>Campaign Management:</strong> AI-driven marketing campaign tools</li>
+				<li><strong>Market Intelligence:</strong> AI competitive analysis and market research</li>
+			</ul>
+			
+			<h2>How We Select Tools</h2>
+			<p>
+				Each tool in our directory is evaluated based on:
+			</p>
+			<ul>
+				<li>Effectiveness and performance</li>
+				<li>User experience and ease of use</li>
+				<li>Integration capabilities</li>
+				<li>Value for money</li>
+				<li>Customer support and resources</li>
+				<li>Innovation and unique features</li>
+			</ul>
+			
+			<h2>Stay Updated</h2>
+			<p>
+				The AI marketing landscape evolves rapidly. We regularly update our directory with new tools 
+				and fresh information to ensure you always have access to the latest and greatest AI marketing solutions.
+			</p>
+			
+			<h2>Contact Us</h2>
+			<p>
+				Have a suggestion for a tool we should include? Want to provide feedback? 
+				Feel free to reach out to us at <a href="mailto:contact@aimarketingtools.com">contact@aimarketingtools.com</a>.
+			</p>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.about {
+		max-width: 800px;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.hero-content {
+		text-align: center;
+		margin-bottom: 2rem;
+		position: relative;
+		padding: 2rem 0;
+	}
+	
+	.hero-glow {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 80%;
+		height: 70%;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(80, 200, 255, 0.15) 0%,
+			rgba(180, 100, 255, 0.1) 40%,
+			transparent 70%
+		);
+		filter: blur(40px);
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	.about h1 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		background: linear-gradient(90deg, rgb(80, 200, 255), rgb(180, 100, 255));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-shadow: 0 0 30px rgba(80, 200, 255, 0.3);
+		position: relative;
+		display: inline-block;
+	}
+	
+	.about h1::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 80px;
+		height: 3px;
+		background: linear-gradient(90deg, rgb(80, 200, 255), rgb(180, 100, 255));
+		border-radius: 3px;
+	}
+
+	.content {
+		background-color: rgba(25, 28, 45, 0.7);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		padding: 2rem;
+		border-radius: 12px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+		border: 1px solid rgba(80, 200, 255, 0.1);
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.content::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			135deg,
+			rgba(80, 200, 255, 0.05) 0%,
+			transparent 50%,
+			rgba(180, 100, 255, 0.05) 100%
+		);
+		pointer-events: none;
+	}
+
+	h2 {
+		color: rgb(80, 200, 255);
+		margin: 1.8rem 0 1rem;
+		font-family: 'Space Grotesk', sans-serif;
+		font-weight: 600;
+	}
+
+	p {
+		color: rgba(180, 190, 220, 0.9);
+		margin-bottom: 1rem;
+		line-height: 1.6;
+	}
+
+	ul {
+		margin: 1rem 0 1.5rem 1.5rem;
+		color: rgba(180, 190, 220, 0.9);
+	}
+
+	li {
+		margin-bottom: 0.5rem;
+		position: relative;
+	}
+	
+	li::before {
+		content: '';
+		position: absolute;
+		left: -1rem;
+		top: 0.6rem;
+		width: 6px;
+		height: 6px;
+		background: linear-gradient(90deg, rgb(80, 200, 255), rgb(180, 100, 255));
+		border-radius: 50%;
+	}
+
+	a {
+		color: rgb(80, 200, 255);
+		text-decoration: none;
+		transition: all 0.3s ease;
+		position: relative;
+	}
+
+	a::after {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: linear-gradient(90deg, rgb(80, 200, 255), rgb(180, 100, 255));
+		transition: width 0.3s ease;
+	}
+
+	a:hover {
+		color: rgb(180, 100, 255);
+	}
+
+	a:hover::after {
+		width: 100%;
+	}
+
+	@media (max-width: 768px) {
+		.about h1 {
+			font-size: 2rem;
+		}
+
+		.content {
+			padding: 1.5rem;
+		}
+	}
+</style>

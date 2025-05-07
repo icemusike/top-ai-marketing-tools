@@ -1,0 +1,106 @@
+---
+---
+
+<div class="search-container">
+  <div class="search-wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input 
+      type="text" 
+      id="search-input" 
+      placeholder="Search AI tools..." 
+      class="search-input"
+    />
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    const toolCards = document.querySelectorAll('.tool-card');
+    
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      
+      toolCards.forEach(card => {
+        const name = card.querySelector('.tool-name').textContent.toLowerCase();
+        const description = card.querySelector('.tool-description').textContent.toLowerCase();
+        const category = card.querySelector('.tool-category').textContent.toLowerCase();
+        
+        const isVisible = 
+          name.includes(searchTerm) || 
+          description.includes(searchTerm) || 
+          category.includes(searchTerm);
+        
+        card.style.display = isVisible ? 'flex' : 'none';
+      });
+      
+      // Show/hide "no results" message
+      const noResults = document.getElementById('no-results');
+      const visibleCards = document.querySelectorAll('.tool-card[style="display: flex;"]');
+      
+      if (noResults) {
+        if (searchTerm && visibleCards.length === 0) {
+          noResults.style.display = 'block';
+        } else {
+          noResults.style.display = 'none';
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .search-container {
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .search-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background-color: rgba(25, 28, 45, 0.8);
+    border: 1px solid rgba(80, 200, 255, 0.3);
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .search-input:focus {
+    border-color: rgba(80, 200, 255, 0.8);
+    box-shadow: 0 0 15px rgba(80, 200, 255, 0.3);
+    outline: none;
+  }
+  
+  .search-input::placeholder {
+    color: rgba(180, 190, 220, 0.7);
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(80, 200, 255, 0.8);
+    pointer-events: none;
+  }
+  
+  @media (max-width: 768px) {
+    .search-container {
+      max-width: 100%;
+    }
+  }
+</style>

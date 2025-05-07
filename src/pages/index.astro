@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ToolCard from '../components/ToolCard.astro';
+import CategoryFilter from '../components/CategoryFilter.astro';
+import SearchBar from '../components/SearchBar.astro';
+import { tools } from '../data/tools';
+---
+
+<Layout title="AI Marketing Tools Directory">
+	<section class="hero">
+		<div class="hero-content">
+			<h1>Top AI Marketing Tools Directory</h1>
+			<p>Discover the best AI-powered tools to supercharge your marketing efforts</p>
+			<div class="hero-glow"></div>
+		</div>
+	</section>
+
+	<SearchBar />
+	
+	<CategoryFilter />
+
+	<section class="tools-grid">
+		{tools.map(tool => (
+			<ToolCard 
+				name={tool.name}
+				description={tool.description}
+				url={tool.url}
+				category={tool.category}
+			/>
+		))}
+	</section>
+	
+	<div id="no-results" class="no-results">
+		<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="11" cy="11" r="8"></circle>
+			<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+			<line x1="8" y1="11" x2="14" y2="11"></line>
+		</svg>
+		<h3>No tools found</h3>
+		<p>Try adjusting your search or browse by category</p>
+	</div>
+</Layout>
+
+<style>
+	.hero {
+		text-align: center;
+		margin-bottom: 3rem;
+		position: relative;
+		padding: 3rem 0;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+	}
+
+	.hero-glow {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 80%;
+		height: 70%;
+		background: radial-gradient(
+			ellipse at center,
+			rgba(80, 200, 255, 0.15) 0%,
+			rgba(180, 100, 255, 0.1) 40%,
+			transparent 70%
+		);
+		filter: blur(40px);
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	.hero h1 {
+		font-size: 3rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		background: linear-gradient(90deg, rgb(80, 200, 255), rgb(180, 100, 255));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		text-shadow: 0 0 30px rgba(80, 200, 255, 0.3);
+		position: relative;
+		display: inline-block;
+	}
+
+	.hero h1::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100px;
+		height: 3px;
+		background: linear-gradient(90deg, rgb(80, 200, 255), rgb(180, 100, 255));
+		border-radius: 3px;
+	}
+
+	.hero p {
+		color: rgba(180, 190, 220, 0.9);
+		font-size: 1.3rem;
+		max-width: 600px;
+		margin: 0 auto;
+		line-height: 1.6;
+	}
+
+	.tools-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+		gap: 2rem;
+		margin-bottom: 3rem;
+	}
+	
+	.no-results {
+		display: none;
+		text-align: center;
+		padding: 3rem 0;
+		color: rgba(180, 190, 220, 0.9);
+		max-width: 400px;
+		margin: 0 auto;
+	}
+	
+	.no-results svg {
+		color: rgba(80, 200, 255, 0.8);
+		margin-bottom: 1rem;
+		opacity: 0.7;
+	}
+	
+	.no-results h3 {
+		font-size: 1.5rem;
+		margin-bottom: 0.5rem;
+		color: white;
+	}
+	
+	.no-results p {
+		font-size: 1rem;
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2rem;
+		}
+
+		.hero p {
+			font-size: 1rem;
+		}
+
+		.tools-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
